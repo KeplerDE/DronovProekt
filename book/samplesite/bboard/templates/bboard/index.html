@@ -1,0 +1,17 @@
+
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Пример веб-страницы</title>
+ </head>
+ <body>
+  <h1>Заголовок</h1>
+  {% for bb in bbs %}
+  <div>
+  <p>{{ bb.title }}</p>
+  <p>{{ bb.content }}</p>
+  <p>{{ bb.published|date:'d.m.y H:i:s' }}</p>
+  </div>
+ {{ endfor }}
+ </body>
+</html>
