@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-     <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-          <title>{{current_rubric.name}} - Tafel mit Anzeigen </title>
-     </head>
-     <body>
-          <h1>Anzeigen</h1>
-          <div>
-              <a href="{% url 'index' %}">Startseite</a>
-              <a href="{% url 'add' %}">Hinzufügen</a>
-              {% for rubric in rubrics %}
-              <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-              {% endfor %}
-          </div>
-          {% for bb in bbs %}
-          <div>
-              <h2>{{ bb.title }}</h2>
-              <p>{{ bb.content }}</p>
-              <p><a href="/bboard/{{ bb.rubric.pk }}/"</p>
-              {{ bb.rubric.name }}</a></p>
-              <p>{{ bb.published|date:'d.m.y H:i:s' }}</p>
-           </div>
-          {% endfor %}
-     </body>
-</html>
+{% extends "layout/basic.html" %}
+
+{% block content %}
+{% for bb in bbs %}
+<div class="b">
+   <h2>{{ bb.title }}</h2>
+    <p>{{ bb.content }}</p>
+    <p><a href="/bboard/{{ bb.rubric.pk }}/"</p>
+    {{ bb.rubric.name }}</a></p>
+    <p>{{ bb.published|date:'d.m.y H:i:s' }}</p>
+
+</div>
+{% endfor %}
+{% endblock %}
+

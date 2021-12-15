@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html>
-     <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-          <title> Hinzufügen - Tafel mit Anzeigen </title>
-     </head>
-     <body>
-          <h1>Hinzufügen Anzeige</h1>
-          <div>
-              <a href="{% url 'index' %}>Startseite</a>
-              {% for rubric in rubrics %}
-              <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-              {% endfor %}
-          </div>
-          <form method="post">
-               {% csrf_token %}    # тег шаблонизатор
-               {{ form.as_p }}
-               <input type="submit" value="Hinzufügen">
-          </form>
-     </body>
-</html>
+{% extends "layout/basic.html" %}
+
+{% block title %} Hinzufügen Anzeige {% endblock %}
+{% block content %}
+<h2>Hinzufügen anzeige </h2>
+<form method="post">
+     {% csrf_token %}    #тег шаблонизатор
+     {{ form.as_p }}
+     <input type="submit" value="Hinzufügen">
+</form>
+{% endblock %}
+
+
+
